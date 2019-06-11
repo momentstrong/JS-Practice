@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>js-introduction</title>
+	<!-- 内部引用 script的type属性可有可无  -->
+	<script type="text/javascript">
+		document.write('hello world')
+		document.write("<br>");
+	</script>
+	 <!-- 外部引用 -->
+	<script type="text/javascript" src="introduction.js">
+		document.write("inner content");
+
+		// 当外部引用和内部引用条件同时具备时，外部引用有效
+	</script>
+
+</head>
+<body>
+	<!-- script 可以也放在body区 -->
+	<script type="text/javascript">
+		document.write("<br>");
+		document.write('hello world')
+	</script>
+</body>
+<script type="text/javascript">
+	var temp1="1",temp2=true;
+	document.write("<br>")
+	document.write(temp1,temp2)
+
+	var v1 = "a",
+		v2= 3,
+		v3=true;
+	document.write(v1,v2,v3)
+</script>
+</html>
