@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>立即执行函数</title>
+
+</head>
+	<script type="text/javascript">
+	/*立即执行函数*/
+		// 针对初始化功能 只执行一次
+		// 无需函数名，但也可写上，但没有任何实际意义
+		// 写法1. w3c推荐写法
+		(function(){
+			console.log('hello world w3c 推荐写法');
+		}());
+		// 写法2
+		(function(){
+			console.log('hello word immediately function');
+		})();
+
+		// 可以存在函数名
+		(function test(){
+			console.log('hello LQ');
+		}());
+
+		// 函数可以有返回值
+		var str =(function (){
+			return 'immediately fun'
+		}());
+		console.log(str);
+
+		// 函数可以带参数
+		var num = (function (a,b,c,d){
+			return a + b + c + d;
+		}(1,2,3,4));
+		console.log(num);
+
+
+		// 常见面试题  该函数会有出现什么效果
+		// 不会输出 test...   (1,2,3,4)里面当作了表达式，而不是执行符合
+		function test(a,b,c,d){
+			console.log('test...')
+		}(1,2,3,4);
+
+		/* 报错 成为表达式才可以被执行
+		function test1(a,b,c,d){
+
+		}()
+		*/
+		// 函数表达式
+		var result = function bds(){
+				console.log('bds...');
+		}();
+
+
+		// 以下情况，也被视为立即执行函数
+		// 只要被识别为表达式，就能被执行符号执行
+		// - +  ! || 符号可以将函数转换为表达式 ， 因此可以被执行符号()执行
+		-function (){
+			console.log('a...')
+		}();
+		+ function bbb(){
+			console.log('b...')
+		}();
+		!function(){
+			console.log('c...')
+		}();
+		0|| function(){
+			console.log('d...')
+		}()
+
+
+		/* 
+			()  也是一种表达式
+			所以 写法2 
+			(function(){})()
+			可以被执行
+
+			将执行符号()放入表达式()里，函数后面，
+			即写法1 (function(){}())
+			可以被执行
+
+		*/ 
+
+
+	</script>
+<body>
+
+</body>
+</html>
