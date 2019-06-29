@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>type</title>
+ <script type="text/javascript">
+ 		
+ 		// var obj = {a:'a',a:'b'};
+ 		// window.strictDemo = function(){
+ 		// 	console.log('striceDemo start...');
+ 		// }
+ 		// // eval('{console.log("obj.a")}');
+ 		// function strictFun(){
+ 		// 	console.log(this);
+ 		// 	alert(0);
+ 		// 	strictDemo();
+ 		// }
+ 		// strictFun();
+
+ 		function demoFun1(){
+ 			console.log(arguments.caller)
+ 		}
+
+ 		function demoFun2(){
+ 			demoFun1();
+ 		}
+ 		demoFun2();
+
+ </script>
+</head>
+<body>
+
+</body>
+</html>

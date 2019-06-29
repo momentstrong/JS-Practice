@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>clone-deep-html</title>
+	<script type="text/javascript">
+       var obj1 = {
+       	  name:'liuqang',
+       	  sex:'sex',
+       	  age : 26,
+       	  wife:[1,2,{name:'gxm'}]
+       }
+       function clone (origin ,target) {
+       	 target = target || {}
+       	 for(var prop in origin){
+       	 	if(origin[prop] instanceof  Object){
+       	 		target[prop] = (origin[prop] instanceof  Array) ?  [] : {};
+       	 		clone(origin[prop], target[prop]);
+       	 	}
+       	 	else{
+       	 		target[prop]  = origin[prop]
+       	 	}
+       	 }
+       	 	
+       	 return target;
+       }
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
