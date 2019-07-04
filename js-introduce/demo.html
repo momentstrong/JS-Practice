@@ -21,15 +21,24 @@
 	<button>111</button>
 	<button>222</button>
 	<button>333</button>
-	<div class="content" style="display: block;">111</div> 
+	<div class="content" style="display: block;"> 
+		<!-- 
+        text 	 nodeType:3
+		comment  nodeType :8
+		element  nodeType:1
+		document nodeType : 9
+		-->
+		111
+		<p></p>
+	</div> 
 	<div class="content">222</div>
 	<div class="content">333</div>
 </body>
 </html>
 <script type="text/javascript">
 	 var btn = document.getElementsByTagName('button');
-	 var div =document.getElementsByTagName('div');
-	for (var i = 0; i < btn.length; i++) {
+	 var div = document.getElementsByTagName('div');
+	 for (var i = 0; i < btn.length; i++) {
 		(function(n){
 		btn[n].onclick= function(){
 			for(var j=0; j< btn.length;j++){
