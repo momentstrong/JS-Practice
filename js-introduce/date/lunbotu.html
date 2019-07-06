@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>轮播图</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			top:0;
+		} 
+		ul{
+			list-style:none;
+		}
+		 ul li{
+			 float: left;
+		 }
+		
+		ul li img{
+			width:500px;
+			height: 200px;
+			/*display: block;*/
+			position: relative;
+			opacity: 0;
+		}
+	
+		ul li img.img1{
+			opacity: 1;
+		}
+
+	</style>
+</head>
+<body>
+	<div style="height: 200px; overflow-x: hidden; position: absolute;">
+		<ul>
+		<li><img  class="img1" src="../../pic/fj1.jpg"></li>
+		<li><img class="img2" src="../../pic/sg.jpg"></li>
+		<li><img class="img3" src="../../pic/yl.jpg"></li>
+	<!-- <li></li>
+		<li></li> -->
+	</ul>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	// document.getElementsByTagName()
+	var ul = document.getElementsByTagName('ul');
+	var imgs = document.getElementsByTagName('img');
+	let  imgsLength = imgs.length;
+	var i = 0;
+	setInterval(function(){		// console.log('11')
+		console.log(i)
+		for(var j = 0;j< imgs.length;j++){
+				if(j == i){
+					imgs[j].style.opacity=1;
+					continue;		
+				}
+				imgs[j].style.opacity=0;
+
+		}
+		imgs[i].style.left = parseInt(window.getComputedStyle(imgs[i]).width) * -1  * i +'px';
+		if(i==(imgsLength-1)){
+			i= 0;
+		}else{
+			i++;
+		}	
+
+	},2000)
+</script>
+</html>

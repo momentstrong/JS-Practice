@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>click</title>
+	<style type="text/css">
+		
+		.content{
+			width:100px;
+			height: 100px;
+			border: 1px solid black;
+			display: none;
+
+		}
+		.active{
+			background-color: yellow; 
+		}
+	</style>
+</head>
+
+<body>
+	<button>111</button>
+	<button>222</button>
+	<button>333</button>
+	<div class="content" style="display: block;"> 
+		<!-- 
+        text 	 nodeType:3
+		comment  nodeType :8
+		element  nodeType:1
+		document nodeType : 9
+		-->
+		111
+		<p></p>
+	</div> 
+	<div class="content">222</div>
+	<div class="content">333</div>
+</body>
+</html>
+<script type="text/javascript">
+	 var btn = document.getElementsByTagName('button');
+	 var div = document.getElementsByTagName('div');
+	 for (var i = 0; i < btn.length; i++) {
+		(function(n){
+		btn[n].onclick= function(){
+			for(var j=0; j< btn.length;j++){
+				btn[j].style.backgroundColor = '';
+				div[j].style.display = 'none';
+			}
+			this.style.backgroundColor= 'yellow';
+			div[n].style.display = 'block';
+	}
+	})(i)
+}
+</script>
