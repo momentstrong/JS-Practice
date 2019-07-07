@@ -20,25 +20,24 @@
 		var  a =false;
 		div.onmousedown = function(e){
 			console.log('down');
-			a = true;
-		}
-		div.onmousemove = function(e){
-			if(!a){
-				return;
-			}	
+			document.onmousemove = function(e){
+	
 			var event = e || window.event;
 			var x = event.pageX || event.clientX;
 			var y = event.pageY || event.clientY;
 			console.log(x,y);
-			div.style.left= x - 50+ 'px';
-			div.style.top = y - 50 + 'px';
+			var width = parseInt(window.getComputedStyle(div).width) / 2;
+			div.style.left= x - width + 'px';
+			div.style.top = y - width + 'px';
 
 
+			}
+			div.onmouseup = function(){
+				console.log('up')
+				document.onmousemove = null;
+			}
 		}
-		div.onmouseup = function(){
-			console.log('up')
-			a = false;
-		}
+		
 
 </script>
 </html>
