@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>拖拽方块</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			top: 0;
+		}
+	</style>
+
+</head>
+<body>
+	<div style="width:100px;height:100px;background:green;position: absolute;" 
+	
+	></div>
+</body>
+<script type="text/javascript">
+		var div = document.getElementsByTagName('div')[0];
+		var  a =false;
+		div.onmousedown = function(e){
+			console.log('down');
+			a = true;
+		}
+		div.onmousemove = function(e){
+			if(!a){
+				return;
+			}	
+			var event = e || window.event;
+			var x = event.pageX || event.clientX;
+			var y = event.pageY || event.clientY;
+			console.log(x,y);
+			div.style.left= x - 50+ 'px';
+			div.style.top = y - 50 + 'px';
+
+
+		}
+		div.onmouseup = function(){
+			console.log('up')
+			a = false;
+		}
+
+</script>
+</html>
